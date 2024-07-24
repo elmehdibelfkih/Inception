@@ -26,6 +26,6 @@ volumes:
   DB:
   wordpress-vol:
 networks:
-  web-net:
+  inception-net:
   internal-net:
     internal: true
