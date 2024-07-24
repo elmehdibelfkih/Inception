@@ -1,4 +1,6 @@
 FROM debian:latest
 
-RUN apt update -y && apt upgrade -y && apt install php7.4-fpm -y
-RUN apt install 
+RUN apt update -y && apt upgrade -y
+RUN apt install php-fpm php-mysql php-xml php-mbstring php-curl
+RUN 
+CMD bash
