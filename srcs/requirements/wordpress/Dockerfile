@@ -9,5 +9,7 @@ COPY ./conf/wp-config.php /var/www/html/
 RUN chown -R www-data:www-data /var/www/html/
 RUN find /var/www/html/ -type d -exec chmod 755 {} \;
 RUN find /var/www/html/ -type f -exec chmod 644 {} \;
-
+EXPOSE 80 
+EXPOSE 443
+EXPOSE 3306
 CMD set.sh

@@ -1,5 +1,7 @@
 services:
   nginx:
+    container_name: nginx
+    image: nginx:nginx
     build: requirements/nginx/.
     ports:
       -  443:443
@@ -11,7 +13,11 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    depends_on:
+      - wordpress
   mariadb:
+    container_name: mariadb
+    image: mariadb:mariadb
     build: requirements/mariadb/.
     env_file:
       - .env
@@ -23,6 +29,8 @@ services:
     volumes:
       - DB:/var/lib/mysql
   wordpress:
+    container_name: wordpress
+    image: wordpress:wordpress
     build: requirements/wordpress/.
     env_file:
       - .env
@@ -31,6 +39,9 @@ services:
     restart: unless-stopped
     volumes:
       - wordpress-vol:/var/www/html/
+    ports:
+      - "8080:80"
+      - "8443:443"
 volumes:
   DB:
   wordpress-vol:

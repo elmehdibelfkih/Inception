@@ -15,5 +15,5 @@ GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost';
 
 -- Reload privilege tables
 FLUSH PRIVILEGES;
-
 EOF
+mysqld
