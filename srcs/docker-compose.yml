@@ -7,7 +7,7 @@ services:
       - inception-net
       - internal-net
     volumes:
-      - wordpress-vol:/home/tools
+      - wordpress-vol:/var/www/html/
     restart: unless-stopped
     env_file:
       - .env
@@ -15,8 +15,22 @@ services:
     build: requirements/mariadb/.
     env_file:
       - .env
+    networks:
+      - internal-net
     ports:
       - "3308:3306"
+    restart: unless-stopped
+    volumes:
+      - DB:/var/lib/mysql
+  wordpress:
+    build: requirements/wordpress/.
+    env_file:
+      - .env
+    networks:
+      - internal-net
+    restart: unless-stopped
+    volumes:
+      - wordpress-vol:/var/www/html/
 volumes:
   DB:
   wordpress-vol:
