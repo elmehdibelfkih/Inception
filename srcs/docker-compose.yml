@@ -6,11 +6,10 @@ services:
     ports:
       -  443:443
     networks:
-      - inception-net
       - internal-net
     volumes:
       - wordpress-vol:/var/www/html/
-    restart: unless-stopped
+    # restart: unless-stopped
     env_file:
       - .env
     depends_on:
@@ -23,9 +22,7 @@ services:
       - .env
     networks:
       - internal-net
-    ports:
-      - "3308:3306"
-    restart: unless-stopped
+    # restart: unless-stopped
     volumes:
       - DB:/var/lib/mysql
   wordpress:
@@ -36,16 +33,12 @@ services:
       - .env
     networks:
       - internal-net
-    restart: unless-stopped
+    # restart: unless-stopped
     volumes:
       - wordpress-vol:/var/www/html/
-    ports:
-      - "8080:80"
-      - "8443:443"
 volumes:
   DB:
   wordpress-vol:
 networks:
-  inception-net:
   internal-net:
     internal: true

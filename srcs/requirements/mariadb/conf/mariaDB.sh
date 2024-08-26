@@ -3,7 +3,7 @@ set -e
 
 service mysql start
 mysql -u root <<EOF
-ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';
+# ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';
 DELETE FROM mysql.user WHERE User='';
 -- Disallow root login remotely
 DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost');
@@ -16,4 +16,6 @@ GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost';
 -- Reload privilege tables
 FLUSH PRIVILEGES;
 EOF
+
 mysqld
+tail -f /dev/null
