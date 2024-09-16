@@ -17,32 +17,32 @@ services:
     #   - wordpress
   
 
-  # mariadb:
-  #   container_name: mariadb
-  #   image: mariadb:mariadb
-  #   build: requirements/mariadb/.
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - internal-net
-  #   # restart: unless-stopped
-  #   volumes:
-  #     - DB:/var/lib/mysql
+  mariadb:
+    container_name: mariadb
+    image: mariadb:mariadb
+    build: requirements/mariadb/.
+    env_file:
+      - .env
+    networks:
+      - internal-net
+    # restart: unless-stopped
+    volumes:
+      - DB:/var/lib/mysql
 
 
-#   wordpress:
-#     container_name: wordpress
-#     image: wordpress:wordpress
-#     build: requirements/wordpress/.
-#     env_file:
-#       - .env
-#     networks:
-#       - internal-net
-#     # restart: unless-stopped
-#     volumes:
-#       - wordpress-vol:/var/www/html/
-#     depends_on:
-#       - mariadb
+  wordpress:
+    container_name: wordpress
+    image: wordpress:wordpress
+    build: requirements/wordpress/.
+    env_file:
+      - .env
+    networks:
+      - internal-net
+    # restart: unless-stopped
+    volumes:
+      - wordpress-vol:/var/www/html/
+    depends_on:
+      - mariadb
 volumes:
   DB:
   wordpress-vol:
