@@ -29,5 +29,5 @@ mkdir -p /run/php
 chown root:root /run/php
 chmod 755 /run/php
 sed -i 's#/run/php/php7.3-fpm.sock#9000#g' /etc/php/7.3/fpm/pool.d/www.conf
-echo "hana wsalt taltali"
+echo "............................................"
 php-fpm7.3 --nodaemonize
