@@ -5,6 +5,7 @@ chmod 755 wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 cd /var/www/html/
 chown -R www-data:www-data /var/www/html/
+sleep 4
 if [ ! -f wp-config.php ]; then
     wp core download --allow-root --locale=en_US
     wp config create \
