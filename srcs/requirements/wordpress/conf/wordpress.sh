@@ -3,7 +3,6 @@ set -e
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod 755 wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
-cd /var/www/html/
 chown -R www-data:www-data /var/www/html/
 sleep 4
 if [ ! -f wp-config.php ]; then
@@ -26,6 +25,35 @@ if ! wp core is-installed --allow-root; then
     --path=/var/www/html \
     --allow-root
 fi
+
+# if ! wp user get "$WP_USR" > /dev/null 2>&1; then
+#    wp user create \
+#     "$WP_USR" "$WP_USR_EMAIL" \
+#     --role=author \
+#     --user_pass="$WP_USR_PWD" \
+#     --allow-root 
+# fi
+
+# if ! wp user get "$WP_USR" > /dev/null 2>&1; then
+#    wp user create \
+#     $WP_USR $WP_USR_EMAIL \
+#     --role=author \
+#     --user_pass=$WP_USR_PWD \
+#     --allow-root 
+# fi
+
+# USER_EXISTS=$(wp user list --field=user_login --allow-root | grep -w "$WP_USR")
+
+# if [ -z "$USER_EXISTS" ]; then
+#    echo "Creating user '$WP_USR'..."
+#    wp user create \
+#     "$WP_USR" "$WP_USR_EMAIL" \
+#     --role=author \
+#     --user_pass="$WP_USR_PWD" \
+#     --allow-root 
+# fi
+
+
 mkdir -p /run/php
 chown root:root /run/php
 chmod 755 /run/php
