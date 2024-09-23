@@ -25,7 +25,7 @@ services:
       - .env
     networks:
       - internal-net
-    # restart: unless-stopped
+    restart: unless-stopped
     volumes:
       - mariadb:/var/lib/mysql
 
@@ -38,7 +38,7 @@ services:
       - .env
     networks:
       - internal-net
-    # restart: unless-stopped
+    restart: unless-stopped
     volumes:
       - wordpress:/var/www/html/
     depends_on:
@@ -46,6 +46,7 @@ services:
 
 networks:
   internal-net:
+    name: internal-net
     driver: bridge
 
 volumes:
@@ -53,13 +54,13 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device: /home/ebelfkih/data/wordpress
+      device:  /home/ebelfkih/data/wordpress  ## Change this to your path
       o: bind
       type: none
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
-      device: /home/ebelfkih/data/mariadb
+      device: /home/ebelfkih/data/mariadb/  ## Change this to your path
       o: bind
       type: none

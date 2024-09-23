@@ -12,4 +12,4 @@ mysql -e "CREATE USER IF NOT EXISTS '$MYSQL_WP_USER'@'%' IDENTIFIED BY '$MYSQL_W
 mysql -e "GRANT ALL PRIVILEGES ON $MYSQL_WP_DATABASE.* TO '$MYSQL_WP_USER'@'%'"
 mysql -e "FLUSH PRIVILEGES"
 mysqladmin shutdown
-mysqld
+mysqld_safe

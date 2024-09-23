@@ -1,5 +1,5 @@
 FROM debian:buster
-RUN apt update -y && apt upgrade -y && apt install nginx mariadb-client -y
+RUN apt-get update -y && apt-get upgrade -y && apt-get install nginx -y
 COPY ./conf/nginx.conf /etc/nginx/
 COPY ./certs /etc/ssl/certs/
 EXPOSE 443
