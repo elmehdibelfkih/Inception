@@ -4,7 +4,6 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod 755 wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 chown -R www-data:www-data /var/www/html/
-# sleep 4
 if [ ! -f wp-config.php ]; then
     wp core download --allow-root --locale=en_US
     wp config create \
@@ -15,6 +14,7 @@ if [ ! -f wp-config.php ]; then
     --path=/var/www/html \
     --allow-root
 fi
+
 if ! wp core is-installed --allow-root; then
     wp core install \
     --url=$DOMAIN \

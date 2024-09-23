@@ -1,2 +1,3 @@
-# .env
-# .out
+.env
+./src/requirements/nginx/certs/nginx.crt
+./src/requirements/nginx/certs/nginx.key
