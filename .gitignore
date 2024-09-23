@@ -1,3 +1,3 @@
-.env
-./src/requirements/nginx/certs/nginx.crt
-./src/requirements/nginx/certs/nginx.key
+./src/*.env
+./src/requirements/nginx/certs/*
+./src/requirements/nginx/certs/*
