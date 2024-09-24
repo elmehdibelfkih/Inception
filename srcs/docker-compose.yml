@@ -38,7 +38,7 @@ services:
       - .env
     networks:
       - internal-net
-    restart: unless-stopped
+    # restart: unless-stopped
     volumes:
       - wordpress:/var/www/html/
     depends_on:
@@ -54,13 +54,13 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device:  /Users/ebelfkih/data/wordpress  ## Change this to your path
+      device:  /home/ebelfkih/data/wordpress  ## Change this to your path
       o: bind
       type: none
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
-      device: /Users/ebelfkih/data/mariadb/  ## Change this to your path
+      device: /home/ebelfkih/data/mariadb/  ## Change this to your path
       o: bind
       type: none
