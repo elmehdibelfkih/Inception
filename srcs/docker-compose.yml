@@ -38,7 +38,7 @@ services:
       - .env
     networks:
       - internal-net
-    # restart: unless-stopped
+    restart: unless-stopped
     volumes:
       - wordpress:/var/www/html/
     depends_on:

@@ -1,3 +1,2 @@
 ./src/*.env
 ./src/requirements/nginx/certs/*
-./src/requirements/nginx/certs/*
