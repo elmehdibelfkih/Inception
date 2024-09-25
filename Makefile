@@ -1,7 +1,7 @@
 up:
 	mkdir -p /home/ebelfkih/data/wordpress
 	mkdir -p /home/ebelfkih/data/mariadb
-	if [ ! -f "/home/ebelfkih/Desktop/Inception/srcs/requirements/nginx/certs/nginx.key" ] \
+	@if [ ! -f "/home/ebelfkih/Desktop/Inception/srcs/requirements/nginx/certs/nginx.key" ] \
 	|| [ ! -f "/home/ebelfkih/Desktop/Inception/srcs/requirements/nginx/certs/nginx.crt" ]; then \
 		make ssl; \
 	fi
@@ -30,7 +30,7 @@ fclean: clean
 re: clean up
 
 ssl:
-	openssl req -x509 -nodes -newkey rsa:2048 -keyout \
+	@openssl req -x509 -nodes -newkey rsa:2048 -keyout \
 	/home/ebelfkih/Desktop/Inception/srcs/requirements/nginx/certs/nginx.key \
 	-out /home/ebelfkih/Desktop/Inception/srcs/requirements/nginx/certs/nginx.crt \
 	-days 365 -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=localhost"

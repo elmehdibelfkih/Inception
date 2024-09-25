@@ -14,5 +14,4 @@ mysql -u root -p$MYSQL_ROOT_PASSWORD < init.sql
 mysql -u root -p$MYSQL_ROOT_PASSWORD -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
 mysql -u root -p$MYSQL_ROOT_PASSWORD -e "FLUSH PRIVILEGES;"
 mysqladmin -u root -p$MYSQL_ROOT_PASSWORD shutdown
-# kill $(cat /var/run/mysqld/mysqld.pid)
 exec "$@"
