@@ -74,5 +74,5 @@ Pull requests are welcome. Ensure to follow best practices and provide documenta
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Authors
-- Your Name (@elmehdibelfkih)
+- EL MEHDI BELFKIH (@elmehdibelfkih)
 
